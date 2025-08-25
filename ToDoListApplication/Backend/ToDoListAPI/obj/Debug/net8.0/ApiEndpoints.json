@@ -1,0 +1,134 @@
+[
+  {
+    "ContainingType": "ToDoListAPI.Controllers.ToDoListController",
+    "Method": "GetToDoListAll",
+    "RelativePath": "api/ToDoList",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ToDoListAPI.Controllers.ToDoListController",
+    "Method": "CreateToDoList",
+    "RelativePath": "api/ToDoList",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ToDoListAPI.Models.AddToDoList",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ToDoListAPI.Controllers.ToDoListController",
+    "Method": "GetToDoListByDate",
+    "RelativePath": "api/ToDoList/{date}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "date",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ToDoListAPI.Controllers.ToDoListController",
+    "Method": "GetToDoListById",
+    "RelativePath": "api/ToDoList/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ToDoListAPI.Controllers.ToDoListController",
+    "Method": "UpdateToDoList",
+    "RelativePath": "api/ToDoList/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "ToDoListAPI.Models.UpdateToDoList",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ToDoListAPI.Controllers.ToDoListController",
+    "Method": "DeletetToDoList",
+    "RelativePath": "api/ToDoList/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ToDoListAPI.Controllers.ToDoListController",
+    "Method": "UpdateToDoListIsComplete",
+    "RelativePath": "api/ToDoList/{id}/isCompleted",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "ToDoListAPI.Models.ToDoListIsComplete",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ToDoListAPI.Controllers.ToDoListController",
+    "Method": "GetToDoListByMonth",
+    "RelativePath": "api/ToDoList/month/{month}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "month",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

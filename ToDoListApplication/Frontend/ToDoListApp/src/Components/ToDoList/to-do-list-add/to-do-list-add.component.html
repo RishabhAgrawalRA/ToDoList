@@ -1,0 +1,25 @@
+<div class="container">
+    <form [formGroup]="addToDoListForm" (ngSubmit)="onSubmit()">
+        <div class="m-2">            
+            <label class="form-label">Title</label>
+            <input class="form-control" type="text" formControlName="title" />
+            <div *ngIf="title?.invalid && (title?.dirty || title?.touched)">
+                <div *ngIf="title?.errors?.['required']">
+                    <p>Title is required</p>
+                </div>
+                <div *ngIf="title?.errors?.['minlength']">
+                    <p>Minimum length is 5 characters.</p>
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" formControlName="description"></textarea>
+        </div>
+        <div class="m-2">
+            <label class="form-label">Is Completed</label>
+            <input class="form-check-input m-1" type="checkbox" formControlName="isCompleted" />
+        </div>
+        <button type="submit" [disabled]="addToDoListForm.invalid" class="btn btn-success" >Submit</button>
+    </form>
+</div>

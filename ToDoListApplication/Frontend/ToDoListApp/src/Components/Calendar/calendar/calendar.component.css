@@ -1,0 +1,26 @@
+.container{
+  display: flex;
+  width: 100%;
+}
+
+.monthselection{
+  display: flex;
+  height: 40px;
+  width: 20%;
+  margin-top: 5px;
+}
+
+.monthselectionInner{
+  margin: 3px;
+}
+
+.calendar-container {
+  width: 60%;
+  margin-top: 5px;
+}
+.calendar-side {
+  width: 20%;
+  background: #fff;
+  margin-top: 5px;
+  padding: 10px;
+}
