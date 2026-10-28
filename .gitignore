@@ -4,4 +4,6 @@
 
 /ToDoListApplication/Backend/.vs
 /ToDoListApplication/Frontend/node_modules
-/ToDoListApplication/Backend/ToDoListAPI/.vs/ToDoListAPI/FileContentIndex
+/ToDoListApplication/Backend/ToDoListAPI/.vs
+/ToDoListApplication/Backend/ToDoListAPI/bin
+/ToDoListApplication/Backend/ToDoListAPI/obj
