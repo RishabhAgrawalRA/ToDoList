@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using ToDoListAPI.Data;
 using ToDoListAPI.Repositories;
 
