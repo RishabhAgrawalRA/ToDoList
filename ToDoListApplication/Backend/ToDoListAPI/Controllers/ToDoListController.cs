@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using ToDoListAPI.Models;
+using ToDoListAPI.Models.ToDoListModel;
 using ToDoListAPI.Repositories;
 
 namespace ToDoListAPI.Controllers

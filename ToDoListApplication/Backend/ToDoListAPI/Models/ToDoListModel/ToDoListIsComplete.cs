@@ -1,4 +1,4 @@
-﻿namespace ToDoListAPI.Models
+﻿namespace ToDoListAPI.Models.ToDoListModel
 {
     public class ToDoListIsComplete
     {

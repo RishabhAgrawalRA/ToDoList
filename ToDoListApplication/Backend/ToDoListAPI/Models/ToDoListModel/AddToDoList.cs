@@ -1,12 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ToDoListAPI.Models
+namespace ToDoListAPI.Models.ToDoListModel
 {
-    public class ToDoList
+    public class AddToDoList
     {
-        [Required]
-        [Key]
-        public int id { get; set; }
         [Required]
         public string title { get; set; }
         public string? description { get; set; }

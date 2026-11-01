@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ToDoListAPI.Models;
+using ToDoListAPI.Models.ToDoListModel;
 
 namespace ToDoListAPI.Repositories
 {
