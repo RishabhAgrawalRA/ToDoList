@@ -5,7 +5,8 @@ namespace ToDoListAPI.Services.Interface
 {
     public interface IAuthService
     {
-        Task<string?> LoginAsync(UserDto request);
+        Task<TokenResponseDto?> LoginAsync(UserDto request);
         Task<User?> RegisterAsync(UserDto request);
+        Task<TokenResponseDto> RefreshTokenAsync(RefreshTokenRequestDto request);
     }
 }

@@ -27,11 +27,21 @@ namespace ToDoListAPI.Controllers
         }
 
         [HttpPost("Login")]
-        public async Task<ActionResult<string>> Login(UserDto request)
+        public async Task<ActionResult<TokenResponseDto>> Login(UserDto request)
         {
             var token = await _authService.LoginAsync(request);
             if (token == null)
                 return BadRequest("Invalid username or password.");
+            //return Ok(token);
+            return Ok(new { token });
+        }
+
+        [HttpPost("RefreshToken")]
+        public async Task<ActionResult<TokenResponseDto>> RefreshToken(RefreshTokenRequestDto request)
+        {
+            var token = await _authService.RefreshTokenAsync(request);
+            if (token == null)
+                return BadRequest("Invalid/Expired Refresh Token.");
             //return Ok(token);
             return Ok(new { token });
         }

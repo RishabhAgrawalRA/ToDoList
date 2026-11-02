@@ -32,6 +32,13 @@ namespace ToDoListAPI.Migrations.UserDb
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("RefreshToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RefreshTokenExpiry")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Roles")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

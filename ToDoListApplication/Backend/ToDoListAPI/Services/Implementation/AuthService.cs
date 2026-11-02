@@ -40,7 +40,7 @@ namespace ToDoListAPI.Services.Implementation
             return user;
         }
 
-        public async Task<string?> LoginAsync(UserDto request)
+        public async Task<TokenResponseDto?> LoginAsync(UserDto request)
         {
             User? user = await _userDbContext.Users.FirstOrDefaultAsync(u => u.Username == request.Username);
             if (user == null)
@@ -51,7 +51,12 @@ namespace ToDoListAPI.Services.Implementation
             {
                 return null; // Incorrect password
             }
-            string token = CreateToken(user);
+            var token = new TokenResponseDto
+            {
+                AccessToken = CreateToken(user),
+                RefreshToken = await GenerateAndSaveRefreshTokenAsync(user)
+            };
+
             return token;
         }
 
@@ -84,6 +89,37 @@ namespace ToDoListAPI.Services.Implementation
                 signingCredentials: creds
             );
             return new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);
+        }
+
+        private async Task<string> GenerateAndSaveRefreshTokenAsync(User user)
+        {
+            var randomNumber = new byte[32];
+            using var rng = RandomNumberGenerator.Create();
+            rng.GetBytes(randomNumber);
+            var refreshToken = Convert.ToBase64String(randomNumber);
+            //save token to HttpOnly cookie next
+
+            //save token to db
+            user.RefreshToken = refreshToken;
+            user.RefreshTokenExpiry = DateTime.Now.AddDays(1);
+            await _userDbContext.SaveChangesAsync();
+            return refreshToken;
+        }
+
+        public async Task<TokenResponseDto> RefreshTokenAsync(RefreshTokenRequestDto request)
+        {
+            //user id come only, fetch token from HttpOnly cookie and validate it with the one in db
+            var user = await _userDbContext.Users.FirstOrDefaultAsync(u => u.UserId == request.UserId);
+            //validate the refresh token and its expiry
+            if (user == null || user.RefreshToken != request.RefreshToken || user.RefreshTokenExpiry <= DateTime.Now)
+                return null; // Invalid refresh token
+            
+            var token = new TokenResponseDto
+            {
+                AccessToken = CreateToken(user),
+                RefreshToken = await GenerateAndSaveRefreshTokenAsync(user)
+            };
+            return token;
         }
     }
 }
